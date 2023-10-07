@@ -1,0 +1,413 @@
+ 
+ 
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+button {
+    background-color: rgb(44, 62, 80) !important;
+    color: #fff!important;
+}
+.error-message {
+    color: red;
+    margin: 10px 0;
+}
+.success-message {
+    background-color: #DFF2BF; /* Light green background */
+    color: #4F8A10; /* Dark green text */
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid #4F8A10;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 1.1em;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    animation: fadeIn 1s 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.logo-text {
+    background: #2c3e50;
+    padding: 15px;
+    text-align: center; 
+    font-weight: bold; 
+    font-size: 20px; 
+    color: #fff;
+}
+
+.button-container-acc-lock {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.delete-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+    margin: 20px auto;
+    display: inline-block!important;
+    /* background-color: #d9534f!important;
+    border: 1px solid #d43f3a!important; */
+}
+.page__content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+.page__content p {
+    /* font-size: 1.5rem; */
+    text-align: center;
+}
+.login-container {
+    width: 90%;
+    max-width: 400px; /* This will make sure the login box is not too wide on large screens */
+    margin: 5% auto; /* This centers the login box vertically and horizontally */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow to lift the login box */
+}
+
+.login-container .main-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #7a7a93;
+}
+
+.login-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+
+.login-input {
+    width: 95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+  
+.login-button {
+    /* margin-top: 20px; */
+    display: block!important;
+    width: 40%;
+    padding: 10px 15px;
+    font-size: 18px;
+    background-color: #4a90e2; /* Blue color for the button */
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin: 20px auto!important;
+}
+.login-button:hover {
+    background-color: #357ab7; /* Darken the button color when hovered */
+}
+.user-agent-info {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #9b3c3c;
+}
+
+.dashboard-container {
+    display: flex;
+}
+  
+.custom-sidebar {
+    width: 20%;
+    background-color: #34495e;
+    position: fixed;
+    z-index: 3;
+    /* overflow-y: auto;  */
+}
+  
+.main-content {
+    width: 80%;
+    overflow-y: auto; /* for scroll if content overflows vertically */
+}
+
+.main-content .page__content {
+    width: 50%;
+    margin: 20px auto;
+    border: 1px solid #333;
+    padding: 20px 40px;
+    /* height: 600px; */
+}
+
+.logout-btn {
+    display: inline-block!important;
+    background-color: #fff!important;
+    width: 100%!important;
+    padding: 0 20px!important;
+    color: #333!important;
+    border-radius: 0!important;
+    /* float: right;
+    margin-right: 10%; */
+}
+
+.menu-items {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.reg-button {
+    float: right!important;
+    margin: 20px 60px 0 0!important; 
+}
+
+/* Style the table borders */
+table {
+    border: 1px solid #ddd;
+    width: 100%;
+}
+  
+  /* Style the table header cells */
+th {
+    /* background-color: #f2f2f2; */
+    background-color: #d3d3d3;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+  
+/* Style the table data cells */
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+/* Highlight every odd row for better readability */
+tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+/* Add a hover effect to rows */
+tr:hover {
+    background-color: #eaeaea;
+}
+  
+/* Additional styles for the table header */
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.product-edit-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.input-row {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: 500;
+    margin-right: 20px; 
+    width: 20%;
+    text-align: left;
+}
+
+.product-input {
+    flex-grow: 1; /* Allows the input to occupy the remaining space */
+    padding: 10px 15px; 
+    border-radius: 5px; /* Rounded corners */
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Gentle shadow for depth */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Transition effects */
+}
+
+.product-input:focus {
+    border-color: #007BFF; /* Highlight border when focused */
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2); /* Stronger shadow when focused */
+    outline: none; /* Remove default outline */
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; /* Occupy the full width of the parent */
+    margin-top: 20px;
+}
+
+.update-btn, .cancel-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.3s; /* Transition effects */
+}
+
+.update-btn:hover, .cancel-btn:hover, .delete-btn:hover {
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+/* Styles for the error messages */
+
+.error-title {
+    color: #d9534f; /* Red color */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.error-subtitle {
+    color: #d43f00; /* Dark red color */
+    margin-bottom: 15px;
+}
+
+.error-list {
+    border: 1px solid #d9534f;
+    padding: 10px;
+    border-radius: 5px;
+    list-style-type: none; /* Remove default bullet points */
+}
+
+.error-list li {
+    color: #d9534f;
+    margin-bottom: 5px;
+}
+
+/* Space out each product info */
+.error-product-info > div {
+    margin-bottom: 5px;
+}
+
+.error-instruction {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Styles for the Fix Error button */
+
+.fix-error-btn {
+    background-color: #0275d8; /* Blue color */
+    color: white; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    float: right;
+    margin-right: 20px;
+}
+
+.fix-error-btn:hover {
+    background-color: #025aa5; /* Darker blue when hovering */
+}
+
+/* Modal dialog styling */
+.dialog-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.dialog-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.dialog-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #025aa5;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+.dialog-button.cancel {
+    background-color: #FF3B30;
+}
+
+.dialog-button:hover {
+    opacity: 0.9;
+}
+
+
+.customFileLabel {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #FFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 14px;
+    opacity: 1;
+}
+
+/* a hover effect on the button */
+.customFileLabel:hover {
+    background-color: #0056b3;
+}
+
+/* If the button is disabled */
+.customFileLabel[disabled],
+.customFileLabel[disabled]:hover {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.img-show {
+    width: 76%;
+}
+.file-input-container {
+    margin-top: 10px;
+    width: 100%;
+    text-align: right;
+}
+.file-input-container label {
+    margin-right: 0;
+}
+.readonly-input {
+    border: none;
+    background-color: transparent;
+    color: #333;
+    cursor: default; 
+}
+
+.readonly-input:focus {
+    outline: none;
+}
+.confirm-val {
+    text-align: left;
+    width: 80%;
+}
