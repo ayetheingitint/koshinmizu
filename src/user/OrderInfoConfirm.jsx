@@ -13,6 +13,7 @@ import {
 import App from '../App';
 import BusinessMenuComponent from '../user/BusinessMenu';
 import OrderInfoUpdateComponent from '../user/OrderInfoUpdate';
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 /*受注情報確認画面Component*/
 const OrderInfoConfirmPage = (props) => {
     const [showOrderInfoUpdate, setshowOrderInfoUpdate] = useState(false);
@@ -44,7 +45,7 @@ const OrderInfoConfirmPage = (props) => {
         try {
             // 選択した受注情報に含まれる商品リストを取得API呼び出し
             console.log('selected orderNumber', searchordernumber);
-            const response = await fetch(`http://127.0.0.1:3000/product_masters/searchordernumber?searchordernumber=${searchordernumber}`)
+            const response = await fetch(`${BASE_URL}/product_masters/searchordernumber?searchordernumber=${searchordernumber}`)
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -100,7 +101,7 @@ const OrderInfoConfirmPage = (props) => {
                 // 有場合
                 setorderInfoList([]);
                 /*  納品日と担当者ｺｰﾄﾞで検索API呼び出し*/
-                const response = await fetch(`http://127.0.0.1:3000/orders/search_by_date_range_inchargecode?from_date=${fromDeliveryDate}&to_date=${toDeliveryDate}&searchbyinchargecode=${currentLoginInChargeCode}`);
+                const response = await fetch(`${BASE_URL}/orders/search_by_date_range_inchargecode?from_date=${fromDeliveryDate}&to_date=${toDeliveryDate}&searchbyinchargecode=${currentLoginInChargeCode}`);
                 if (!response.ok) {
                     throw new Error('ネットワークエラーが発生しました。');
                 }

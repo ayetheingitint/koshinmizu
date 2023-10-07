@@ -12,7 +12,7 @@ import {
 
 import OrderInfoRegisterComponent from '../user/OrderInfoRegister';
 import BusinessMenuComponent from '../user/BusinessMenu';
-
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 import App from '../App';
 /*受注登録 Component*/
 const OrderRegisterPage = (props) => {
@@ -151,7 +151,7 @@ const OrderRegisterPage = (props) => {
         if (searchcustomername) {
             setcustomerList([]);
             try {
-                const response = await fetch(`http://127.0.0.1:3000/customers/searchcustomername?searchcustomername=${searchcustomername}`)
+                const response = await fetch(`${BASE_URL}/customers/searchcustomername?searchcustomername=${searchcustomername}`)
                 if (!response.ok) {
                     throw new Error('ネットワークエラーが発生しました。');
                 }
@@ -188,7 +188,7 @@ const OrderRegisterPage = (props) => {
             try {
                 // 得意先コード検索呼び出し
                 // Input Parameter→得意先コード
-                const response = await fetch(`http://127.0.0.1:3000/customers/searchcustomercode?searchcustomercode=${searchcustomercode}`)
+                const response = await fetch(`${BASE_URL}/customers/searchcustomercode?searchcustomercode=${searchcustomercode}`)
 
                 if (!response.ok) {
                     throw new Error('ネットワークエラーが発生しました。');
@@ -251,7 +251,7 @@ const OrderRegisterPage = (props) => {
     const fetchlastOrderRecordData = async () => {
         try {
             //受注最後のデータを取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/order/lastrecord');
+            const response = await fetch('`${BASE_URL}/order/lastrecord');
             const jsonData = await response.json();
             setorderNumber(jsonData.order_number);//受注最後の受注№設定する
 
@@ -264,7 +264,7 @@ const OrderRegisterPage = (props) => {
     const fetchCustomerData = async () => {
         try {
             // 得意先データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/customer/get_customer_data');
+            const response = await fetch(`${BASE_URL}/customer/get_customer_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -281,7 +281,7 @@ const OrderRegisterPage = (props) => {
     const fetchAccountData = async () => {
         try {
             // 売掛区データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/account/get_account_data');
+            const response = await fetch('${BASE_URL}/account/get_account_data');
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -296,7 +296,7 @@ const OrderRegisterPage = (props) => {
     const fetchWarehouseData = async () => {
         try {
             // 倉庫データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/warehouse/get_warehouse_data');
+            const response = await fetch('${BASE_URL}/warehouse/get_warehouse_data');
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -312,7 +312,7 @@ const OrderRegisterPage = (props) => {
     const fetchDeliveryData = async () => {
         try {
             // 納品先データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/delivery/get_delivery_data');
+            const response = await fetch(`${BASE_URL}/delivery/get_delivery_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -327,7 +327,7 @@ const OrderRegisterPage = (props) => {
     const fetchRemarkData = async () => {
         try {
             // 備考データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/remark/get_remark_data');
+            const response = await fetch(`${BASE_URL}/remark/get_remark_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }

@@ -15,6 +15,7 @@ import BusinessMenuComponent from '../user/BusinessMenu';
 import OrderInfoConfirmComponent from '../user/OrderInfoConfirm';
 import OrderRegisterConfirmComponent from '../user/OrderRegisterConfirm';
 import OrderErrorComponent from '../user/OrderError';
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 /*受注情報確認画面Component*/
 const OrderInfoUpdatePage = (props) => {
     const [showOrderError, setshowOrderError] = useState(false);
@@ -139,7 +140,7 @@ const OrderInfoUpdatePage = (props) => {
     const fetchaccountData = async () => {
         try {
             //  売掛データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/account/get_account_data');
+            const response = await fetch(`${BASE_URL}/account/get_account_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -154,7 +155,7 @@ const OrderInfoUpdatePage = (props) => {
     const fetchwarehouseData = async () => {
         try {
             //  倉庫データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/warehouse/get_warehouse_data');
+            const response = await fetch(`${BASE_URL}/warehouse/get_warehouse_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -169,7 +170,7 @@ const OrderInfoUpdatePage = (props) => {
     const fetchdeliveryData = async () => {
         try {
             //    納品データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/delivery/get_delivery_data');
+            const response = await fetch(`${BASE_URL}/delivery/get_delivery_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -185,7 +186,7 @@ const OrderInfoUpdatePage = (props) => {
     const fetchRemarkData = async () => {
         try {
             //     備考データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/remark/get_remark_data');
+            const response = await fetch(`${BASE_URL}/remark/get_remark_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -253,7 +254,7 @@ const OrderInfoUpdatePage = (props) => {
     const fetchsummaryData = async () => {
         try {
             /* 摘要データ取得API呼び出し*/
-            const response = await fetch('http://127.0.0.1:3000/summary/get_summary_data');
+            const response = await fetch(`${BASE_URL}/summary/get_summary_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -421,7 +422,7 @@ const OrderInfoUpdatePage = (props) => {
         console.log('To delete orderinfoproductobjectList', props.productList);
         try {
             /* 受注情報明細削除API呼び出し*/
-            const response = await fetch('http://127.0.0.1:3000/orders/orderdetailsdelete', {
+            const response = await fetch(`${BASE_URL}/orders/orderdetailsdelete`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -453,7 +454,7 @@ const OrderInfoUpdatePage = (props) => {
         const orderID = deleteOrderData.order_id;
         try {
             /* 受注情報削除API呼び出し*/
-            const response = await fetch('http://127.0.0.1:3000/orders/orderdelete', {
+            const response = await fetch(`${BASE_URL}/orders/orderdelete`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

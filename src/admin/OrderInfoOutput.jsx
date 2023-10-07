@@ -9,7 +9,7 @@ import {
     Col,
     Button
 } from 'react-onsenui';
-
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 /*受注情報出力Component*/
 const OrderInfoOutputPage = () => {
     const currentDate = new Date();
@@ -72,7 +72,7 @@ const OrderInfoOutputPage = () => {
     const updateOrderOutputFlagData = async (updatedFlagOrderList) => {
         try {
             /*  済みフラグ更新API呼び出し*/
-            const response = await fetch('http://127.0.0.1:3000/order/updateflagdata', {
+            const response = await fetch(`${BASE_URL}/order/updateflagdata`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ const OrderInfoOutputPage = () => {
             /* 納品日「From Date]／納品日「To Date ]　チェック*/
             if (fromDeliveryDate && toDeliveryDate) {
                 /*  納品日検索API呼び出し*/
-                const response = await fetch(`http://127.0.0.1:3000/orders/search_by_date_range?from_date=${fromDeliveryDate}&to_date=${toDeliveryDate}`);
+                const response = await fetch(`${BASE_URL}/orders/search_by_date_range?from_date=${fromDeliveryDate}&to_date=${toDeliveryDate}`);
                 if (!response.ok) {
                     throw new Error('ネットワークエラーが発生しました。');
                 }

@@ -7,7 +7,7 @@ import {
     Row,
     Col, Button
 } from 'react-onsenui';
-
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 /*ログ確認 Component*/
 const LogConfirmPage = () => {
     const currentDate = new Date();
@@ -67,7 +67,7 @@ const LogConfirmPage = () => {
         try {
             setinfoList([]); /*インフォログListクリア一*/
             /*  日付検索API呼び出し*/
-            const response = await fetch(`http://127.0.0.1:3000/infolog/search_by_date_range?from_date=${fromDate}&to_date=${toDate}`);
+            const response = await fetch(`${BASE_URL}/infolog/search_by_date_range?from_date=${fromDate}&to_date=${toDate}`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -86,7 +86,7 @@ const LogConfirmPage = () => {
         try {
             setinfoList([]);/*インフォログListクリア一*/
             /*  日付検索API呼び出し*/
-            const response = await fetch(`http://127.0.0.1:3000/errorlog/search_by_date_range?from_date=${fromDate}&to_date=${toDate}`);
+            const response = await fetch(`${BASE_URL}/errorlog/search_by_date_range?from_date=${fromDate}&to_date=${toDate}`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }

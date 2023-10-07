@@ -13,7 +13,7 @@ import OrderRegisterComponent from '../user/OrderRegister';
 import OrderRegisterConfirmComponent from '../user/OrderRegisterConfirm';
 import OrderRegisterErrorComponent from '../user/OrderError';
 import BarcodeScannerComponent from '../user/BarcodeScanner';
-
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 import App from '../App';
 /*受注情報登録 Component*/
 const OrderInfoRegisterPage = (props) => {
@@ -164,7 +164,7 @@ const OrderInfoRegisterPage = (props) => {
             setproductList([]);
             try {
                 // 商品名検索API呼び出し
-                const response = await fetch(`http://127.0.0.1:3000/product_masters/searchproductname?searchproductname=${searchproductname}`)
+                const response = await fetch(`${BASE_URL}/product_masters/searchproductname?searchproductname=${searchproductname}`)
 
                 if (!response.ok) {
                     throw new Error('ネットワークエラーが発生しました。');
@@ -199,7 +199,7 @@ const OrderInfoRegisterPage = (props) => {
             setproductList([]);
             try {
                 //  商品ｺｰﾄﾞ検索API呼び出し
-                const response = await fetch(`http://127.0.0.1:3000/product_masters/searchproductcode?searchproductcode=${searchproductcode}`)
+                const response = await fetch(`${BASE_URL}/product_masters/searchproductcode?searchproductcode=${searchproductcode}`)
 
                 if (!response.ok) {
                     throw new Error('ネットワークエラーが発生しました。');
@@ -235,7 +235,7 @@ const OrderInfoRegisterPage = (props) => {
             // setproductList([]);
             try {
                 //  Janｺｰﾄﾞ検索API呼び出し
-                const response = await fetch(`http://127.0.0.1:3000/product_masters/searchjancode?searchjancode=${searchjancode}`)
+                const response = await fetch(`${BASE_URL}/product_masters/searchjancode?searchjancode=${searchjancode}`)
 
                 if (!response.ok) {
                     throw new Error('ネットワークエラーが発生しました。');
@@ -305,7 +305,7 @@ const OrderInfoRegisterPage = (props) => {
     const fetchProductData = async () => {
         try {
             //   商品データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/product_masters/get_product_data');
+            const response = await fetch(`${BASE_URL}/product_masters/get_product_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -320,7 +320,7 @@ const OrderInfoRegisterPage = (props) => {
     const fetchsummaryData = async () => {
         try {
             // 摘要データ取得API呼び出し
-            const response = await fetch('http://127.0.0.1:3000/summary/get_summary_data');
+            const response = await fetch(`${BASE_URL}/summary/get_summary_data`);
             if (!response.ok) {
                 throw new Error('ネットワークエラーが発生しました。');
             }
@@ -585,7 +585,7 @@ const OrderInfoRegisterPage = (props) => {
 
         try {
             // 新しい商品を登録API呼び出し
-            const response = await fetch("http://127.0.0.1:3000/product_masters/registerproduct", {
+            const response = await fetch(`${BASE_URL}/product_masters/registerproduct`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

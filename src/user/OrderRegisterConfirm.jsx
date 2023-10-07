@@ -12,6 +12,7 @@ import {
 import OrderInfoRegisterComponent from '../user/OrderInfoRegister';
 import BusinessMenuComponent from '../user/BusinessMenu';
 import App from '../App';
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 /*受注登録確認  Component*/
 const OrderInfoRegisterConfirmPage = (props) => {
     const [selectedSummarycodeValue, setselectedSummarycodeValue] = useState('');
@@ -38,7 +39,7 @@ const OrderInfoRegisterConfirmPage = (props) => {
         try {
             console.log('受注登録リストの印刷', props.orderinfoobjectList);
             /*  受注登録API呼び出し*/
-            const response = await fetch("http://127.0.0.1:3000/order/registerorder", {
+            const response = await fetch(`${BASE_URL}/order/registerorder`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +71,7 @@ const OrderInfoRegisterConfirmPage = (props) => {
         try {
             console.log('受注明細リストの印刷>>>>>', orderinfodetailproductobjectList);
             /* 受注明細登録API呼び出し*/
-            const response = await fetch("http://127.0.0.1:3000/order/registerorderdetail", {
+            const response = await fetch(`${BASE_URL}/order/registerorderdetail`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -104,7 +105,7 @@ const OrderInfoRegisterConfirmPage = (props) => {
         console.log('受注明細リストの印刷>>>>>', orderinfodetailproductobjectList);
         try {
             /* 摘要更新API呼び出し*/
-            const response = await fetch('http://127.0.0.1:3000/summary/updatesummarydata', {
+            const response = await fetch(`${BASE_URL}/summary/updatesummarydata`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -131,7 +132,7 @@ const OrderInfoRegisterConfirmPage = (props) => {
 
         try {
             /* 備考更新API呼び出し*/
-            const response = await fetch('http://127.0.0.1:3000/remark/updateremarkdata', {
+            const response = await fetch(`${BASE_URL}/remark/updateremarkdata`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

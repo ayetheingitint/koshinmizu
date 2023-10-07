@@ -10,7 +10,9 @@ import {
 
 import UserInfoRegisterErrorComponent from '../admin/UserRegisterError';
 import UserInfoRegisterCompleteComponent from '../admin/UserRegisterComplete';
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 import { checkUTF16File } from '../admin/CheckUTF16File';
+
 /*ユーザー登録  Component*/
 const UserInfoRegisterPage = ({ navigator }) => {
     const [errordataList, seterrordataList] = useState([]);
@@ -177,7 +179,7 @@ const UserInfoRegisterPage = ({ navigator }) => {
     const postDataListToApi = async (userDataList) => {
         try {
             /*  担当者登録API呼び出し*/
-            const response = await fetch("http://127.0.0.1:3000/personincharge/register", {
+            const response = await fetch(`${BASE_URL}/personincharge/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

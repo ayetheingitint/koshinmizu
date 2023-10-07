@@ -11,6 +11,7 @@ import {
 
 import UserInfoRegisterCompleteComponent from '../admin/UserRegisterComplete';
 import { checkUTF16File } from '../admin/CheckUTF16File';
+import { BASE_URL } from './../env'; // env ファイルから BASE_URL (環境変数) をインポートします。
 /*ユーザー情報エラーComponent*/
 const UserRegisterErrorPage = ({ errorList, errorRow }) => {
     const [showerror, setshowerror] = useState(true);
@@ -187,7 +188,7 @@ const UserRegisterErrorPage = ({ errorList, errorRow }) => {
         try {
             console.log('ユーザーデータリスト 印刷：', userDataList);
             /*  担当者登録API呼び出し*/
-            const response = await fetch("http://127.0.0.1:3000/personincharge/register", {
+            const response = await fetch(`${BASE_URL}/personincharge/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
